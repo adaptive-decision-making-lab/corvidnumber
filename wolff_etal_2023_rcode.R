@@ -26,6 +26,7 @@
 library(tidyverse)
 library(patchwork)
 library(lme4)
+library(car)
 library(BayesFactor)
 library(bayestestR)
 library(performance)
@@ -36,7 +37,7 @@ library(ggcorrplot)
 # Define functions -------------------------------------------------------------
 
 # Analyze an experiment's data
-analyze_data <- function(df, type, rep) {
+analyze_data <- function(df) {
 
   # Calculate difference and ratio
   df <- df |>
@@ -98,7 +99,7 @@ analyze_data <- function(df, type, rep) {
 
 
   ## t-tests ------------------------------
-
+  ttest_normality <- shapiro.test(choice_means_subject$percent_larger)
   large_pref_ttest <- t.test(choice_means_subject$percent_larger, mu = 50, alternative = "two.sided")
   large_pref_ttest_bf <- ttestBF(choice_means_subject$percent_larger, mu = 50, alternative = "two.sided")
 
@@ -118,17 +119,27 @@ analyze_data <- function(df, type, rep) {
   random_comparison_table <- random_comparison |>
     mutate(BF = as.numeric(bf_values_random))
   best_random_effect_model <- eval(parse(text = random_comparison_table$Name[which(random_comparison_table$BF == max(random_comparison_table$BF))]))
-  best_random_effect <- sub("choose_larger ~ ", "", best_random_effect_model$formula)
-
-  # All random effect structures examined found that the intercept only random effect model or an empty model was the best model structure so no random effect structure was added to the fixed effect models.
+  if(inherits(best_random_effect_model, what = "glm")) {
+    best_random_effect <- sub("choose_larger ~ ", "", best_random_effect_model$formula)
+  } else if (inherits(best_random_effect_model, what = "glmerMod")) {
+    best_random_effect <- paste0(" + ", sub("choose_larger ~ ", "", best_random_effect_model@call[2]))
+    # best_random_effect <- sub(", data = df, family = binomial())", "", best_random_effect)
+  }
 
 
   ## Fixed effects ----------------------
 
-  fixed_difference_model <- glm(formula = choose_larger ~ difference, data = df, family = binomial) # difference as the IV
-  fixed_ratio_model <- glm(formula = choose_larger ~ ratio, data = df, family = binomial) # ratio as the IV
-  fixed_no_interaction_model <- glm(formula = choose_larger ~ difference + ratio, data = df, family = binomial) # no interaction term with main effects.
-  full_fixed_model <- glm(formula = choose_larger ~ difference * ratio, data = df, family = binomial) # full model
+  if(inherits(best_random_effect_model, what = "glm")) {
+    fixed_difference_model <- glm(formula = choose_larger ~ difference, data = df, family = binomial) # difference as the IV
+    fixed_ratio_model <- glm(formula = choose_larger ~ ratio, data = df, family = binomial) # ratio as the IV
+    fixed_no_interaction_model <- glm(formula = choose_larger ~ difference + ratio, data = df, family = binomial) # no interaction term with main effects
+    full_fixed_model <- glm(formula = choose_larger ~ difference * ratio, data = df, family = binomial) # full model
+  } else if (inherits(best_random_effect_model, what = "glmerMod")) {
+    fixed_difference_model <- glmer(formula = as.formula(paste0("choose_larger ~ difference", best_random_effect)), data = df, family = binomial) # difference as the IV
+    fixed_ratio_model <- glmer(formula = as.formula(paste0("choose_larger ~ ratio", best_random_effect)), data = df, family = binomial) # ratio as the IV
+    fixed_no_interaction_model <- glmer(formula = as.formula(paste0("choose_larger ~ difference + ratio", best_random_effect)), data = df, family = binomial) # no interaction term with main effects
+    full_fixed_model <- glmer(formula = as.formula(paste0("choose_larger ~ difference * ratio", best_random_effect)), data = df, family = binomial) # full model
+  }
 
   # Likelihood ratio tests for model comparison
   fixed_model_comparison <- compare_performance(random_effect_intercept, fixed_ratio_model, fixed_difference_model, fixed_no_interaction_model, full_fixed_model)
@@ -196,11 +207,11 @@ analyze_data <- function(df, type, rep) {
     BF = fixed_comparison_table$BF
   )
 
-  random_bf_table <- (random_bf_df)
-  fixed_bf_table <- (fixed_bf_df)
+  # random_bf_table <- (random_bf_df)
+  # fixed_bf_table <- (fixed_bf_df)
 
   # Create Output to use for manuscript
-  output <- list(ttest = large_pref_ttest, ttestbf = large_pref_ttest_bf, CI_difference = choice_means_subject_diff, CI_ratio = choice_means_ratio_means, best_model_fit = bestfit, diff_fig = diff_bird_graph, ratio_fig = ratio_bird_graph, random_table = random_bf_table, fixed_table = fixed_bf_table, fixed_bf_df = fixed_bf_df)
+  output <- list(ttest = large_pref_ttest, ttestbf = large_pref_ttest_bf, ttest_norm = ttest_normality, CI_difference = choice_means_subject_diff, CI_ratio = choice_means_ratio_means, best_model_fit = bestfit, diff_fig = diff_bird_graph, ratio_fig = ratio_bird_graph, random_table = random_bf_df, fixed_table = fixed_bf_df)
 }
 
 # Count the number of interactions with each stooge
@@ -245,10 +256,72 @@ combined_data <- bind_rows(food1, food2, social1, social2)
 
 # Analyze data -----------------------------------------------------------------
 
-food1_results <- analyze_data(food1, "Food", "1")
-food2_results <- analyze_data(food2, "Food", "2")
-social1_results <- analyze_data(social1, "Social", "1")
-social2_results <- analyze_data(social2, "Social", "2")
+## Confirmatory analyses ---------------------
+food1_results <- analyze_data(df = food1)
+check_outliers(food1_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = food1)
+
+food2_results <- analyze_data(df = food2)
+check_outliers(food2_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = food2)
+
+social1_results <- analyze_data(df = social1)
+check_outliers(social1_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = social1)
+
+social2_results <- analyze_data(df = social2)
+check_outliers(social2_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = social2)
+
+## Exploratory analyses requested by reviewers --------------------------
+
+# Combine replicates
+food_data <- bind_rows(food1, food2)
+social_data <- bind_rows(social1, social2)
+
+# Run analyses on combined data
+food_all_results <- analyze_data(df = food_data)
+check_outliers(food_all_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = food_data)
+
+social_all_results <- analyze_data(df = social_data)
+check_outliers(social_all_results$best_model_fit)
+boxTidwell(choose_larger ~ ratio, data = social_data)
+
+# Sex comparison
+food_subjects <- food_data |>
+  summarise(prop_choice = mean(choose_larger, na.rm = TRUE), .by = c(subject, sex, rep))
+food_sex_norm <- shapiro.test(food_subjects$prop_choice)
+food_sex_equal <- leveneTest(prop_choice ~ sex, data = food_subjects)
+food_sex_ttest <- t.test(formula = prop_choice ~ sex, data = food_subjects)
+food_sex_ttest_bf <- ttestBF(formula = prop_choice ~ sex, data = food_subjects)
+
+social_subjects <- social_data |>
+  summarise(prop_choice = mean(choose_larger, na.rm = TRUE), .by = c(subject, sex, rep))
+social_sex_norm <- shapiro.test(social_subjects$prop_choice)
+social_sex_equal <- leveneTest(prop_choice ~ sex, data = social_subjects)
+social_sex_ttest <- t.test(formula = prop_choice ~ sex, data = social_subjects)
+social_sex_ttest_bf <- ttestBF(formula = prop_choice ~ sex, data = social_subjects)
+
+# Co-linearity of ratio and difference
+food_model <- glm(formula = choose_larger ~ diff * ratio, data = food_data, family = binomial)
+vif(food_model)
+social_model <- glm(formula = choose_larger ~ diff * ratio, data = social_data, family = binomial)
+vif(social_model)
+
+food_data_ratio0.5 <- food_data |>
+  filter(ratio == 1/2)
+food_ratio0.5_intercept <- glm(formula = choose_larger ~ 1, data = food_data_ratio0.5, family = binomial)
+food_ratio0.5_full <- glm(formula = choose_larger ~ diff, data = food_data_ratio0.5, family = binomial)
+
+food_ratio0.5_bf <- bayesfactor_models(food_ratio0.5_intercept, food_ratio0.5_full, denominator = food_ratio0.5_intercept)
+
+social_data_ratio0.5 <- social_data |>
+  filter(ratio == 1/2)
+social_ratio0.5_intercept <- glm(formula = choose_larger ~ 1, data = social_data_ratio0.5, family = binomial)
+social_ratio0.5_full <- glm(formula = choose_larger ~ diff, data = social_data_ratio0.5, family = binomial)
+
+social_ratio0.5_bf <- bayesfactor_models(social_ratio0.5_intercept, social_ratio0.5_full, denominator = social_ratio0.5_intercept)
 
 
 # Build plots ------------------------------------------------------------------

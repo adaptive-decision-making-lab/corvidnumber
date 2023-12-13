@@ -1,9 +1,9 @@
 
-# Friends aren't food: pinyon jays show context-dependent numerical cognition
+# Friends aren't food: pinyon jays show context-dependent quantity preference
 
 -   Created on 2022-10-14 by Jeffrey R. Stevens
     (<jeffrey.r.stevens@gmail.com>)
--   Finalized on 2023-08-17
+-   Finalized on 2023-12-13
 
 This repository provides the reproducible research materials for our project that investigates how numerical difference and ratio influence numerical preferences for food and social partners in pinyon jays. This includes the following:
 
@@ -16,7 +16,7 @@ This repository provides the reproducible research materials for our project tha
 
 If you use any of these materials, please cite:
 
-Wolff, L.M., Carey, K., & Stevens, J.R. (2023). Friends aren't food: pinyon jays show context-dependent numerical cognition. https://doi.org/10.31234/osf.io/kxgwt
+Wolff, L.M., Carey, K., & Stevens, J.R. (2023). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.31234/osf.io/kxgwt
 
 ## Summary
 
@@ -79,11 +79,11 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 </tr>
 <tr>
 <td>name</td>
-<td><code itemprop="name">Pinyon jay food and social partner numerical cognition dataset</code></td>
+<td><code itemprop="name">Pinyon jay food and social partner quantity preference dataset</code></td>
 </tr>
 <tr>
 <td>description</td>
-<td><code itemprop="description">The dataset from the paper [Friends aren't food: pinyon jays show context-dependent numerical cognition](https://doi.org/10.31234/osf.io/kxgwt). One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (Gymnorhinus cyanocephalus) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
+<td><code itemprop="description">The dataset from the paper [Friends aren't food: pinyon jays show context-dependent quantity preference](https://doi.org/10.31234/osf.io/kxgwt). One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (Gymnorhinus cyanocephalus) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
 </tr>
 </tr>
 <tr>
