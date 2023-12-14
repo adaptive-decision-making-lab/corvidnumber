@@ -25,7 +25,7 @@ affiliation:
 authornote: |
   PsyArXiv: https://doi.org/10.31234/osf.io/kxgwt
 
-  Version: 2023-12-13 
+  Version: 2023-12-14 
 
   London M. Wolff, \orcidlink{0000-0001-8359-2619} [https://orcid.org/0000-0001-8359-2619](https://orcid.org/0000-0001-8359-2619).
  
@@ -179,11 +179,11 @@ knitr::include_graphics("figures/food_apparatus.png")
 ## _Habituation and Training_
 Prior to experimental sessions, all birds were habituated to the experimental room, cage, and stand and then experienced training. Depending on the bird, this took between 9-16 weeks, as each bird ran once a day between 11:00-15:00 CT. Subjects experienced four training phases in total, each meant to teach the bird a different piece of the paradigm. 
 
-The first phase (rear cup habituation) habituated subjects to the apparatus. For _rear cup habituation_, the experimenter brought a subject from their home cage and released them into the test cage. Five mealworms were placed in each of the two feeding bowls into slots at the back of the cage. After three minutes, the experimenter counted the number of mealworms consumed in each food dish and returned the subject to its home cage.
+The first phase (rear cup habituation) habituated subjects to the apparatus. For _rear cup habituation_, the experimenter brought a subject from their home cage and released them into the test cage. Five mealworms were placed in each of the two feeding bowls into slots at the back of the cage. After three minutes.the experimenter counted the number of mealworms consumed in each food dish and returned the subject to its home cage.
 
-The second phase (front dish habituation) encouraged the birds to place their heads through holes at the front of the cage to consume mealworms from the dishes on the trays. _Front dish habituation_ was similar to rear cup habituation, except three mealworms were placed in both dishes on the Plexiglas trays. The experimenter pushed the trays forward to present the dishes to the subject in one swift and smooth motion. After three minutes, the experimenter counted the number of mealworms eaten in each dish and returned the subject to their home cage.
+The second phase (front dish habituation) encouraged the birds to place their heads through holes at the front of the cage to consume mealworms from the dishes on the trays. _Front dish habituation_ was similar to rear cup habituation, except three mealworms were placed in both dishes on the Plexiglas trays. The experimenter pushed the trays forward to present the dishes to the subject in one swift and smooth motion. After three minutes.the experimenter counted the number of mealworms eaten in each dish and returned the subject to their home cage.
 
-The third phase (moving dish training) introduced the subjects to the fact that the dish on the unchosen side moved out of reach. _Moving dish training_ was identical to  front dish habituation, except the experimenter pulled back the tray in front of the unchosen perch. If subjects ate all three mealworms before three minutes expired, we repeated this process. If the bird did not finish their mealworms, we waited the rest of the three minutes before returning them to their home cage.
+The third phase (moving dish training) introduced the subjects to the fact that the dish on the unchosen side moved out of reach. _Moving dish training_ was identical to  front dish habituation, except the experimenter pulled back the tray in front of the unchosen perch. If subjects ate all three mealworms before three minutes.xpired, we repeated this process. If the bird did not finish their mealworms, we waited the rest of the three minutes.efore returning them to their home cage.
 
 The fourth phase (mixed reward training) taught the subjects to quickly make a choice between zero or three mealworms, eat, and then set up for another trial in quick succession. The _mixed reward training_ was identical to the moving dish training, except one of the dishes held no mealworms while the other held three mealworms. Subjects completed six of these 30-second trials per session.
 
@@ -193,7 +193,7 @@ Subjects progressed to a new phase after consuming at least 70% of the mealworms
 
 All experimental sessions ran between 11:00-15:00 CT. The subjects were not on a restricted diet and were fed for the day directly after completing their respective test trials. One experimenter conducted each session. The first trial of the session consisted of one round of mixed reward training. If they failed this check, the experimenter completed two more rounds of mixed reward training. If they failed two out of three of these trials, this triggered de-bias training. If they succeed, they continued to the experimental trials. 
 
-At the beginning of each trial, the experimenter placed the appropriate number of mealworms 2.5 cm apart in each dish out of sight from the birds. The subject then started the trial on the back perch and hopped forward to one of the front perches to signal choice. The experimenter then removed the opposite dish, and the subject had up to three minutes to consume the mealworms within the chosen dish (see Supplementary Video). If the subject did not make a choice and/or finish all mealworms within three minutes, we ended the session. Once the subject consumed all mealworms, we immediately started the next trial. The first trial in which the subject did not finish all their chosen mealworms triggered a stop for that day's session. Subjects completed on average `r mean(sessions_avg_food1$n)` trials per session for replicate 1 and `r mean(sessions_avg_food2$n)` trials per session in replicate 2 with one session per day. Subjects ran in a randomized order each day. Each bird experienced 10 repetitions for each of the 15 numerical pairs between 1 and 6 (Table \@ref(tab:pairstablelatex)). The pairs were organized into blocks with one instance of each pair per block and order was randomly shuffled within each block.
+At the beginning of each trial, the experimenter placed the appropriate number of mealworms 2.5 cm apart in each dish out of sight from the birds. The subject then started the trial on the back perch and hopped forward to one of the front perches to signal choice. The experimenter then removed the opposite dish, and the subject had up to three minutes.o consume the mealworms within the chosen dish (see Supplementary Video). If the subject did not make a choice and/or finish all mealworms within three minutes.we ended the session. Once the subject consumed all mealworms, we immediately started the next trial. The first trial in which the subject did not finish all their chosen mealworms triggered a stop for that day's session. Subjects completed on average `r mean(sessions_avg_food1$n)` trials per session for replicate 1 and `r mean(sessions_avg_food2$n)` trials per session in replicate 2 with one session per day. Subjects ran in a randomized order each day. Each bird experienced 10 repetitions for each of the 15 numerical pairs between 1 and 6 (Table \@ref(tab:pairstablelatex)). The pairs were organized into blocks with one instance of each pair per block and order was randomly shuffled within each block.
 
 ## _Side-Bias Protocol_
 
@@ -213,7 +213,7 @@ The apparatus for the social experiment was a Y-maze formed out of chicken wire,
 
 ```{r socialappword, eval = FALSE}
 #| out-width: "65%"
-#| fig-cap: "_Note_. Overhead view. Subjects were held inside the main chamber of the Y maze and shown each group of conspecifics for six seconds a piece. They were then released into the chamber to make a choice. Once the subject crossed under a door, the doors were closed and the bird stayed with their chosen conspecific(s) for three minutes.."
+#| fig-cap: "_Note_. Overhead view. Subjects were held inside the main chamber of the Y maze and shown each group of conspecifics for six seconds a piece. They were then released into the chamber to make a choice. Once the subject crossed under a door, the doors were closed and the bird stayed with their chosen conspecific(s) for three minutes."
 
 knitr::include_graphics("figures/social_apparatus.png")
 
@@ -225,7 +225,7 @@ knitr::include_graphics("figures/social_apparatus.png")
 \includegraphics[width=0.65\linewidth]{"figures/social_apparatus.png"}
 \end{center}
 
-\textit{Note.} Overhead view. Subjects were held inside the main chamber of the Y maze and shown each group of conspecifics for six seconds a piece. They were then released into the chamber to make a choice. Once the subject crossed under a door, the doors were closed and the bird stayed with their chosen conspecific(s) for three minutes..
+\textit{Note.} Overhead view. Subjects were held inside the main chamber of the Y maze and shown each group of conspecifics for six seconds a piece. They were then released into the chamber to make a choice. Once the subject crossed under a door, the doors were closed and the bird stayed with their chosen conspecific(s) for three minutes.
 \end{figure}
 
 ## _Habituation and Training_
@@ -236,7 +236,7 @@ Subjects experienced one habituation session per day for five days a week. They 
 
 ## _Experimental Procedure_
 
-All experimental sessions ran between 09:00-17:00 CT, with birds being run once or twice a day depending on personnel. The subjects were not food restricted. During replicate 1, two experimenters were present at each session: the ‘handler’ handled the subject, while the ‘recorder’ handled the camera and the guillotine doors. The experimenter placed the conspecific birds in their respective cages and allowed them to acclimate to the room for 10 minutes before experimentation. The handler then placed  the subject inside the apparatus and showed them each option for six seconds (counter balancing which was shown first) before releasing the subject into the chamber (see Supplementary Video). Once the subject crossed the threshold of one of the doors, the recorder closed both doors. After three minutes elapsed, the handler collected the subject and returned them to their home cage. These steps repeated until all birds had run through the experiment. During replicate 2, the experimenter completed the duties of both handler and recorder.
+All experimental sessions ran between 09:00-17:00 CT, with birds being run once or twice a day depending on personnel. The subjects were not food restricted. During replicate 1, two experimenters were present at each session: the ‘handler’ handled the subject, while the ‘recorder’ handled the camera and the guillotine doors. The experimenter placed the conspecific birds in their respective cages and allowed them to acclimate to the room for 10 minutes before experimentation. The handler then placed  the subject inside the apparatus and showed them each option for six seconds (counter balancing which was shown first) before releasing the subject into the chamber (see Supplementary Video). Once the subject crossed the threshold of one of the doors, the recorder closed both doors. After three minutes.lapsed, the handler collected the subject and returned them to their home cage. These steps repeated until all birds had run through the experiment. During replicate 2, the experimenter completed the duties of both handler and recorder.
 
 For replicate 1, each subject experienced five repetitions for each of the 15 numerical pairs between 1 and 6 (Table \@ref(tab:pairstablelatex)). The side of the larger option was pseudo-randomized with no left or right runs longer than three in a row. The pairs were organized into blocks with one instance of each pair per block and pairs randomly shuffled within each block. The order in which the subjects ran in a particular day was also randomly shuffled.  Subjects experienced one trial per session and one session per day.   Conspecific birds participated in a mean of `r printnum(mean(stooge_bird_info$social1_trials, na.rm = TRUE), digits = 1)` and a median of  `r printnum(median(stooge_bird_info$social1_trials, na.rm = TRUE), digits = 1)` sessions across the replicate. 
 
@@ -244,7 +244,7 @@ For replicate 2, each bird experienced 10 repetitions for each of the 15 numeric
 
 ## _Side-Bias Protocol_
 
-If any subject chose either the left or right side for six consecutive sessions in either habituation or experimentation, they experienced side de-biasing. For side de-biasing, only one door was open in the apparatus, the door leading to the side the subject avoided. We placed five mealworms in the food cup at the end of that arm with no conspecific birds present. The bird had up to five minutes to walk/fly past the door into the correct side and three minutes once the door shut behind them to eat the mealworms. Subjects experienced five consecutive trials in a de-biasing session. The subject returned to habituation or experimental sessions once they successfully choose the avoided side immediately upon release and ate at least 60% of the mealworms provided.
+If any subject chose either the left or right side for six consecutive sessions in either habituation or experimentation, they experienced side de-biasing. For side de-biasing, only one door was open in the apparatus, the door leading to the side the subject avoided. We placed five mealworms in the food cup at the end of that arm with no conspecific birds present. The bird had up to five minutes to walk/fly past the door into the correct side and three minutes.nce the door shut behind them to eat the mealworms. Subjects experienced five consecutive trials in a de-biasing session. The subject returned to habituation or experimental sessions once they successfully choose the avoided side immediately upon release and ate at least 60% of the mealworms provided.
 
 ## Data Analysis
 
