@@ -3,7 +3,7 @@
 
 -   Created on 2022-10-14 by Jeffrey R. Stevens
     (<jeffrey.r.stevens@gmail.com>)
--   Finalized on 2023-12-13
+-   Finalized on 2024-01-06
 
 This repository provides the reproducible research materials for our project that investigates how numerical difference and ratio influence numerical preferences for food and social partners in pinyon jays. This includes the following:
 
@@ -16,7 +16,7 @@ This repository provides the reproducible research materials for our project tha
 
 If you use any of these materials, please cite:
 
-Wolff, L.M., Carey, K., & Stevens, J.R. (2023). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.31234/osf.io/kxgwt
+Wolff, L.M., Carey, K., & Stevens, J.R. (2022). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.31234/osf.io/kxgwt
 
 ## Summary
 
@@ -53,6 +53,8 @@ No additional restrictions — You may not apply legal terms or technological me
 -   large_birds - name of stooge birds in larger group
 -   choice - side (from experimenter perspective) of option chosen by subject
 -   choose_larger - flag indicating whether chosen option was larger (1) or smaller (0) value
+-   recode_choice - side of option chosen by suject for recoded trials
+-   corrob - agreement (1) or disagreement (0) between original and recoded choice data
 
 ### R code
  
@@ -60,13 +62,13 @@ No additional restrictions — You may not apply legal terms or technological me
 
 ### R Markdown documents
 
-`wolff_etal_2023.Rmd` - R Markdown document with R code embedded for main manuscript `wolff_etal_2023_SM.qmd` - Quarto document with R code embedded for supplementary materials
+`wolff_etal_2023.Rmd` - R Markdown document with R code embedded for main manuscript and appendix
 
 ### Installation
 
 To reproduce these results, first clone or unzip the Git repository into a folder. Then, ensure that a subfolder named “figures” is in the folder. Next, open `wolff_etal_2023_rcode.R` in [RStudio](https://rstudio.com) or another R interface and ensure that all packages mentioned at the top of the script are installed. Once all packages are installed, run the script in R using `source("wolff_etal_2023_rcode.R")`.
 
-Once the script runs without errors, you can compile the R Markdown document `wolff_etal_2023.Rmd.` Open this file in RStudio and ensure that you have packages [{knitr}](https://yihui.org/knitr/) and [{rmarkdown}](https://rmarkdown.rstudio.com/) installed. Once installed, use {knitr} to render the document (control-shift-K). To render `wolff_etal_2023_SM.qmd`, first install [Quarto](https://quarto.org), then render inside RStudio.
+Once the script runs without errors, you can compile the R Markdown document `wolff_etal_2023.Rmd.` Open this file in RStudio and ensure that you have packages [{knitr}](https://yihui.org/knitr/) and [{rmarkdown}](https://rmarkdown.rstudio.com/) installed. Once installed, use {knitr} to render the document (control-shift-K). 
 
 # Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
@@ -83,16 +85,16 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 </tr>
 <tr>
 <td>description</td>
-<td><code itemprop="description">The dataset from the paper [Friends aren't food: pinyon jays show context-dependent quantity preference](https://doi.org/10.31234/osf.io/kxgwt). One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (Gymnorhinus cyanocephalus) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
+<td><code itemprop="description">The dataset from the paper <a href="https://doi.org/10.31234/osf.io/kxgwt">Friends aren't food: pinyon jays show context-dependent quantity preference</a>. One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (<i>Gymnorhinus cyanocephalus</i>) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
 </tr>
 </tr>
 <tr>
 <td>url</td>
-<td><code itemprop="url">https://github.com/adaptive-decision-making-lab/corvidnumber</code></td>
+<td><code itemprop="url">https://github.com/adaptive-decision-making-lab/corvid-quantity</code></td>
 </tr>
 <tr>
 <td>sameAs</td>
-<td><code itemprop="sameAs">https://github.com/adaptive-decision-making-lab/corvidnumber</code></td>
+<td><code itemprop="sameAs">https://github.com/adaptive-decision-making-lab/corvid-quantity</code></td>
 </tr>
 <tr>
 <td>citation</td>

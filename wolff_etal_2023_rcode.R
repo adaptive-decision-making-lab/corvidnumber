@@ -8,7 +8,7 @@
 ##
 ## Date Created: 2022-08-12
 ##
-## Date Finalized: 2023-08-17
+## Date Finalized: 2024-01-05
 ##
 ## License: All materials presented here are released under the Creative Commons Attribution 4.0 International Public License (CC BY 4.0).
 ##  You are free to:
@@ -33,6 +33,7 @@ library(performance)
 library(papaja)
 
 library(ggcorrplot)
+library(psych)
 
 # Define functions -------------------------------------------------------------
 
@@ -158,7 +159,7 @@ analyze_data <- function(df) {
   # Plot effects of difference on choice
   diff_bird_graph <- ggplot(data = choice_means_subject_diff, aes(x = difference, y = percent_larger)) +
     geom_line(aes(group = subject, color = subject), alpha = 0.5) +
-    labs(y = "Percent larger choosen", x = "Difference") +
+    labs(y = "Percent larger chosen", x = "Difference") +
     geom_point(data = choice_means_diff_means, size = 3) +
     geom_errorbar(data = choice_means_diff_means, aes(x = difference, ymin = lower, ymax = upper), width = 0, linewidth = 1) +
     geom_hline(yintercept = 50, linetype = "dashed") +
@@ -172,7 +173,7 @@ analyze_data <- function(df) {
 
   # Plot effects of ratio on choice
   ratio_bird_graph <- ggplot(data = choice_means_subject_ratio, aes(x = ratio, y = percent_larger)) +
-    labs(y = "Percent larger choosen", x = "Ratio") +
+    labs(y = "Percent larger chosen", x = "Ratio") +
     geom_line(aes(group = subject, color = subject), alpha = 0.5) +
     geom_point(data = choice_means_ratio_means, size = 3) +
     geom_errorbar(data = choice_means_ratio_means, aes(x = ratio, ymin = lower, ymax = upper), width = 0, linewidth = 1) +
@@ -253,8 +254,16 @@ social2 <- all_data |>
 
 combined_data <- bind_rows(food1, food2, social1, social2)
 
+# Combine replicates
+food_data <- bind_rows(food1, food2)
+social_data <- bind_rows(social1, social2)
+
 
 # Analyze data -----------------------------------------------------------------
+
+## Reliability ---------------------
+food_reliability <- cohen.kappa(cbind(food_data$choice, food_data$recode_choice))
+social_reliability <- cohen.kappa(cbind(social_data$choice, social_data$recode_choice))
 
 ## Confirmatory analyses ---------------------
 food1_results <- analyze_data(df = food1)
@@ -274,10 +283,6 @@ check_outliers(social2_results$best_model_fit)
 boxTidwell(choose_larger ~ ratio, data = social2)
 
 ## Exploratory analyses requested by reviewers --------------------------
-
-# Combine replicates
-food_data <- bind_rows(food1, food2)
-social_data <- bind_rows(social1, social2)
 
 # Run analyses on combined data
 food_all_results <- analyze_data(df = food_data)
