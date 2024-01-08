@@ -23,9 +23,11 @@ affiliation:
 
 
 authornote: |
+  **This preprint has been accepted for publication at _Animal Behavior and Cognition_.**
+
   PsyArXiv: https://doi.org/10.31234/osf.io/kxgwt
 
-  Version: 2024-01-06 
+  Version: 2024-01-08 
 
   London M. Wolff, \orcidlink{0000-0001-8359-2619} [https://orcid.org/0000-0001-8359-2619](https://orcid.org/0000-0001-8359-2619).
  

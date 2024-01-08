@@ -90,11 +90,11 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 </tr>
 <tr>
 <td>url</td>
-<td><code itemprop="url">https://github.com/adaptive-decision-making-lab/corvid-quantity</code></td>
+<td><code itemprop="url">https://github.com/adaptive-decision-making-lab/corvidnumber</code></td>
 </tr>
 <tr>
 <td>sameAs</td>
-<td><code itemprop="sameAs">https://github.com/adaptive-decision-making-lab/corvid-quantity</code></td>
+<td><code itemprop="sameAs">https://github.com/adaptive-decision-making-lab/corvidnumber</code></td>
 </tr>
 <tr>
 <td>citation</td>
