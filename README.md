@@ -3,7 +3,7 @@
 
 -   Created on 2022-10-14 by Jeffrey R. Stevens
     (<jeffrey.r.stevens@gmail.com>)
--   Finalized on 2024-01-06
+-   Finalized on 2024-05-18
 
 This repository provides the reproducible research materials for our project that investigates how numerical difference and ratio influence numerical preferences for food and social partners in pinyon jays. This includes the following:
 
@@ -16,7 +16,7 @@ This repository provides the reproducible research materials for our project tha
 
 If you use any of these materials, please cite:
 
-Wolff, L.M., Carey, K., & Stevens, J.R. (2022). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.26451/abc.11.02.01.2024
+Wolff, L.M., Carey, K., & Stevens, J.R. (2024). Friends aren't food: pinyon jays show context-dependent quantity preference. _Animal Behavior and Cognition_, 11(2), 112-135. https://doi.org/10.26451/abc.11.02.01.2024
 
 ## Summary
 
