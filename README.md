@@ -16,7 +16,7 @@ This repository provides the reproducible research materials for our project tha
 
 If you use any of these materials, please cite:
 
-Wolff, L.M., Carey, K., & Stevens, J.R. (2022). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.31234/osf.io/kxgwt
+Wolff, L.M., Carey, K., & Stevens, J.R. (2022). Friends aren't food: pinyon jays show context-dependent quantity preference. https://doi.org/10.26451/abc.11.02.01.2024
 
 ## Summary
 
@@ -85,7 +85,7 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 </tr>
 <tr>
 <td>description</td>
-<td><code itemprop="description">The dataset from the paper <a href="https://doi.org/10.31234/osf.io/kxgwt">Friends aren't food: pinyon jays show context-dependent quantity preference</a>. One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (<i>Gymnorhinus cyanocephalus</i>) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
+<td><code itemprop="description">The dataset from the paper <a href="https://doi.org/10.26451/abc.11.02.01.2024">Friends aren't food: pinyon jays show context-dependent quantity preference</a>. One data file contains data from four studies: two replicates of both a version with food as the objects and a version with conspecifics as the objects. Data were collected on pinyon jays (<i>Gymnorhinus cyanocephalus</i>) in the Avian Cognition Lab at the University of Nebraska-Lincoln between Feb 2020 and Mar 2022. Food replicate 1 involved 8 subjects. Food replicate 2 involved 4 subjects. Social replicate 1 involved 10 subjects and 17 stooges. Social replicate 2 involved 10 subjects and 8 stooges. In the data file, each row represents the information and choice for a single trial for one subject.</code></td>
 </tr>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 </tr>
 <tr>
 <td>citation</td>
-<td><code itemprop="citation">https://doi.org/10.31234/osf.io/kxgwt</code></td>
+<td><code itemprop="citation">https://doi.org/10.26451/abc.11.02.01.2024</code></td>
 </tr>
 <tr>
 <td>license</td>
